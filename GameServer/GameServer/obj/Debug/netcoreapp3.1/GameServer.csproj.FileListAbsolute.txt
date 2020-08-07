@@ -11,3 +11,16 @@ G:\VisualStudioProject\Multiplayer\GameServer\GameServer\obj\Debug\netcoreapp3.1
 G:\VisualStudioProject\Multiplayer\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.dll
 G:\VisualStudioProject\Multiplayer\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.pdb
 G:\VisualStudioProject\Multiplayer\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.genruntimeconfig.cache
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.exe
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.deps.json
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.json
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.dev.json
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.dll
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.pdb
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csprojAssemblyReference.cache
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfoInputs.cache
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfo.cs
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.dll
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.pdb
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.genruntimeconfig.cache
+F:\MZLU3D\Test\MultiPlayerClient\trunk\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.CoreCompileInputs.cache

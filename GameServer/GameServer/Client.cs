@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Numerics;
+
 namespace GameServer
 {
     class Client
     {
         public static int dataBufferSize = 4096;
         public int id;
+        public Player player;
         public TCP tcp;
+        public UDP udp;
         
         public Client(int _id)
         {
             id = _id;
             tcp = new TCP(id);
+            udp = new UDP(id);
         }
+
+
 
         public class TCP
         {
@@ -69,7 +76,7 @@ namespace GameServer
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        //TODO 断开连接
+                        Server.clients[id].Disconnect();
                         return;
                     }
                     byte[] _data = new byte[_byteLength];
@@ -81,7 +88,7 @@ namespace GameServer
                 catch (Exception e)
                 {
                     Console.WriteLine($"读取TCP数据错误：{e}");
-                    //TODO 断开连接
+                    Server.clients[id].Disconnect();
                 }
             }
 
@@ -105,7 +112,7 @@ namespace GameServer
                     {
                         using (Packet _packet = new Packet(_packetBytes))
                         {
-                            int _packetId = _packet.ReadInt();
+                            int _packetId = _packet.ReadInt();//这个id对应的是Packet中的枚举，用来确定信息是干嘛用的
                             Server.packetHandlers[_packetId](id,_packet);
                         }
                     });
@@ -127,6 +134,89 @@ namespace GameServer
 
                 return false;
             }
+
+            public void Disconnect()
+            {
+                socket.Close();
+                stream = null;
+                receiveData = null;
+                receiveBuffer = null;
+                socket = null;
+            }
+        }
+
+        public class UDP
+        {
+            public IPEndPoint endPoint;
+            private int id;
+
+            public UDP(int _id)
+            {
+                id = _id;
+            }
+
+            public void Connect(IPEndPoint _endPoint)
+            {
+                endPoint = _endPoint;
+            }
+
+            public void SendData(Packet _packet)
+            {
+                Server.SendUDPData(endPoint, _packet);
+            }
+
+            public void HandleData(Packet _packetData)
+            {
+                int _packetLength = _packetData.ReadInt();
+                byte[] _data = _packetData.ReadBytes(_packetLength);
+
+                ThreadManager.ExecuteOnMainThread(() =>
+                {
+                    using (Packet _packet = new Packet(_data))
+                    {
+                        int _packetId = _packet.ReadInt();
+                        Server.packetHandlers[_packetId](id, _packet);
+                    }
+                });
+            }
+
+            public void Disconnect()
+            {
+                endPoint = null;
+            }
+        }
+
+
+        public void SendIntoGame(string _playerName)
+        {
+            player = new Player(id,_playerName,new Vector3(0,0,0));
+
+            foreach (var _client in Server.clients.Values)
+            {
+                if (_client.player != null)
+                {
+                    if (_client.id != id)
+                    {
+                        ServerSend.SpawnPlayer(id, _client.player);//给当前id创建其他已经存在的客户端角色
+                    }
+                }
+            }
+
+            foreach (Client _client in Server.clients.Values)
+            {
+                if (_client.player != null)
+                {
+                    ServerSend.SpawnPlayer(_client.id, player);//给已经存在的其他客户端创建此角色
+                }
+            }
+        }
+
+        private void Disconnect()
+        {
+            Console.WriteLine($"{tcp.socket.Client.RemoteEndPoint} 关闭连接");
+            player = null;
+            tcp.Disconnect();
+            udp.Disconnect();
         }
     }
 }

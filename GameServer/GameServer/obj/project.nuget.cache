@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5uBGnhXv2d1kUYpZ3LPwNI28brB3lxzSQA1WIjHh7VXdZLDItlxLJRTmeUNRx+x+bYMoBobDCAuHkSJDbE3l9w==",
+  "dgSpecHash": "GA6sf3J/Njg5iP7mSnOcivdQAiqmbm/Uvrj+wplFU5+uOg/7NlAFylVJlDS63JVbHqTid6gLQuyODBpEyyQPIA==",
   "success": true,
-  "projectFilePath": "G:\\VisualStudioProject\\Multiplayer\\GameServer\\GameServer\\GameServer.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "F:\\MZLU3D\\Test\\MultiPlayerClient\\trunk\\GameServer\\GameServer\\GameServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

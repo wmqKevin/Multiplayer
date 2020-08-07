@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\VisualStudioProject\\Multiplayer\\GameServer\\GameServer\\GameServer.csproj": {}
+    "F:\\MZLU3D\\Test\\MultiPlayerClient\\trunk\\GameServer\\GameServer\\GameServer.csproj": {}
   },
   "projects": {
-    "G:\\VisualStudioProject\\Multiplayer\\GameServer\\GameServer\\GameServer.csproj": {
+    "F:\\MZLU3D\\Test\\MultiPlayerClient\\trunk\\GameServer\\GameServer\\GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\VisualStudioProject\\Multiplayer\\GameServer\\GameServer\\GameServer.csproj",
+        "projectUniqueName": "F:\\MZLU3D\\Test\\MultiPlayerClient\\trunk\\GameServer\\GameServer\\GameServer.csproj",
         "projectName": "GameServer",
-        "projectPath": "G:\\VisualStudioProject\\Multiplayer\\GameServer\\GameServer\\GameServer.csproj",
+        "projectPath": "F:\\MZLU3D\\Test\\MultiPlayerClient\\trunk\\GameServer\\GameServer\\GameServer.csproj",
         "packagesPath": "C:\\Users\\U3D\\.nuget\\packages\\",
-        "outputPath": "G:\\VisualStudioProject\\Multiplayer\\GameServer\\GameServer\\obj\\",
+        "outputPath": "F:\\MZLU3D\\Test\\MultiPlayerClient\\trunk\\GameServer\\GameServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -40,6 +40,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.Numerics.Vectors": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
