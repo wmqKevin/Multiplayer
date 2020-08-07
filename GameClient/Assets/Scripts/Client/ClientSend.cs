@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 
 public class ClientSend : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class ClientSend : MonoBehaviour
     {
         _packet.WriteLength();
         Client.instance.tcp.SendData(_packet);
+    }
+
+    private static void SendUDPData(Packet _packet)
+    {
+        _packet.WriteLength();
+        Client.instance.udp.SendData(_packet);
     }
 
     #region Packets
@@ -21,5 +28,21 @@ public class ClientSend : MonoBehaviour
             SendTCPData(_packet);
         }
     }
+
+    public static void PlayerMovement(bool[] _inputs)
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.playerMovement))
+        {
+            _packet.Write(_inputs.Length);
+            foreach (var input in _inputs)
+            {
+                _packet.Write(input);
+            }
+            _packet.Write(GameManager.players[Client.instance.myId].transform.rotation);
+
+            SendUDPData(_packet);
+        }
+    }
+
     #endregion
 }
